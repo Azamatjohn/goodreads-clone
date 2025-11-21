@@ -13,6 +13,5 @@ def send_welcome_email(sender, instance, created, **kwargs):
         send_email.delay(
             "Welcome to Goodreads clone",
             f"{instance.username}, enjoy books!",
-            settings.EMAIL_HOST_USER,
             [instance.email],
         )
