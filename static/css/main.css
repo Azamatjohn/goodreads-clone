@@ -42,7 +42,7 @@
     width: 100% !important;
 }
 .d-flex, .d-inline-flex, .media, .media>:not(.media-body), .jumbotron, .card {
-    -ms-flex-negative: 1;
+    -ms-flex: 1;
     flex-shrink: 1;
 }
 .bg-dark {

@@ -4,12 +4,13 @@ from django.dispatch import receiver
 
 from goodreads import settings
 from users.models import CustomUser
+from users.tasks import send_email
 
 
 @receiver(post_save, sender=CustomUser)
 def send_welcome_email(sender, instance, created, **kwargs):
     if created:
-        send_mail(
+        send_email.delay(
             "Welcome to Goodreads clone",
             f"{instance.username}, enjoy books!",
             settings.EMAIL_HOST_USER,
