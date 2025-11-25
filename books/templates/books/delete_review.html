@@ -14,6 +14,10 @@
     <p><b>Comment</b>: {{ review.comment }}</p>
 
     <a href="{% url 'books:detail' book.id %}" class="btn btn-outline-primary">No</a>
-    <a href="{% url 'books:delete-review' book.id review.id %}" class="btn btn-outline-danger">Yes</a>
+    <form method="post" action="{% url 'books:delete-review' book.id review.id %}" style="display:inline;">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-outline-danger">Yes</button>
+    </form>
+
 
 {% endblock %}
